@@ -10,4 +10,5 @@
   * @typedef {Object} Character
   * @property {number} id
   * @property {string} name
+  * @property {number} userId
   */

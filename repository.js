@@ -2,6 +2,17 @@
 const { v4: uuidv4 } = require("uuid");
 
 /**
+ * @type {Character[]}
+ */
+let characters = [
+  {
+    id: 1,
+    name: "character1",
+    userId: 1,
+  },
+];
+
+/**
  * @type {User[]}
  */
 let users = [
@@ -45,5 +56,17 @@ let users = [
       getUserByUsername(username) {
         return users.find((u) => u.username == username);
       },
+
+    /**
+     * @param {number} id
+     * @returns {Character}
+     */
+    getCharacterById(id) {
+      const character =  characters.find((c) => c.id == id);
+      
+      return {
+        ...character,
+      }
+    },
     };
   };
