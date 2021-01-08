@@ -1,0 +1,12 @@
+
+<section class="container mt-2">
+    <div class="d-md-flex flex-md-row-reverse align-items-center justify-content-between mb-4">
+        <a class="btn btn-primary btn-sm" href="/character/new-character">New Character<a>
+    </div>
+
+    <ul class="list-character">
+        {{#each characters}}
+        <li class="list-character-item"> <a href="/characters/{{this.id}}">{{this.name}}</a></li>
+        {{/each}}
+    </ul>
+</section>
