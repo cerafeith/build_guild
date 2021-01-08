@@ -16,6 +16,7 @@ function main() {
 
   const db = repository.InMemory(null);
   const userService = service.UsersService(db);
+  const characterService = service.CharacterService(db);
 
   // Use handlebars as the template engine
   app.engine(
@@ -85,6 +86,15 @@ function main() {
   app.post("/logout", middlewares.EnsureLoggedIn, function (req, res) {
     req.session.destroy((err) => {
       res.redirect("/login");
+    });
+  });
+
+  app.get("/characters", middlewares.EnsureLoggedIn, function (req, res) {
+    const ctx = context.NewContext(req);
+    const characters = characterService.getUsersGroup(ctx.userId);
+    res.render("character-list", {
+      ...ctx,
+      characters,
     });
   });
 

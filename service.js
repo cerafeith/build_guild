@@ -37,8 +37,20 @@ function UnauthorizedException(message) {
     };
   }
 
+  function CharacterService(repo) {
+    return {
+      /**
+      * @param {number} userId
+      */
+      getUsersCharacter(userId) {
+      return repo.getUsersCharacter(userId);
+      },
+    };
+  }
+
   module.exports = {
     UsersService,
+    CharacterService,
     UnauthorizedException,
     InvalidArgumentException,
   };  
