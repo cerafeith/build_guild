@@ -62,7 +62,7 @@ function main() {
     res.render("home", ctx);
   });
 
-  pp.get("/login", middlewares.EnsureNotLoggedIn, function (req, res) {
+  app.get("/login", middlewares.EnsureNotLoggedIn, function (req, res) {
     const ctx = context.NewContext(req);
     res.render("login", ctx);
   });
